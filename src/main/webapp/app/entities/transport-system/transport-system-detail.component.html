@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="transportSystem">
+            <h2><span>Transport System</span> {{transportSystem.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Code</span></dt>
+                <dd>
+                    <span>{{transportSystem.code}}</span>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{transportSystem.name}}</span>
+                </dd>
+                <dt><span>Valid To Date</span></dt>
+                <dd>
+                    <span>{{transportSystem.validToDate}}</span>
+                </dd>
+                <dt><span>Mod Date</span></dt>
+                <dd>
+                    <span>{{transportSystem.modDate}}</span>
+                </dd>
+                <dt><span>Mod User</span></dt>
+                <dd>
+                    <span>{{transportSystem.modUser}}</span>
+                </dd>
+                <dt><span>Company</span></dt>
+                <dd>
+                    <div *ngIf="transportSystem.company">
+                        <a [routerLink]="['/company', transportSystem.company?.id, 'view']">{{transportSystem.company?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/transport-system', transportSystem.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

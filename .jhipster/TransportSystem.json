@@ -1,0 +1,43 @@
+{
+    "name": "TransportSystem",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "validToDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "modDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "modUser",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "transportSystem",
+            "relationshipName": "company",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190807131137",
+    "entityTableName": "transport_system",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
