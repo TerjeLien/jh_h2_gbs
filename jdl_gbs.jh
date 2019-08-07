@@ -9,8 +9,16 @@ entity Company {
     modDate Instant,
     modUser String
 }
+entity TransportSystem {
+	code String,
+	name String,
+    validToDate Instant,
+    modDate Instant,
+    modUser String
+}
 relationship ManyToOne {
-	Company{removerCompany} to Company
+	Company{removerCompany} to Company,
+	TransportSystem{company} to Company
 }
 
 paginate Company with pagination
