@@ -1,0 +1,52 @@
+{
+    "name": "Company",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "shortName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "validFromDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "validToDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "modDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "modUser",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "company",
+            "relationshipName": "removerCompany",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190807123050",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "company",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
