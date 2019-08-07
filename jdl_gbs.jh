@@ -1,0 +1,25 @@
+// an ignored comment
+/** not an ignored comment */
+entity Company {
+	code String,
+	name String,
+	shortName String,
+    validFromDate Instant,
+    validToDate Instant,
+    modDate Instant,
+    modUser String
+}
+relationship ManyToOne {
+	Company{removerCompany} to Company
+}
+
+paginate Company with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
