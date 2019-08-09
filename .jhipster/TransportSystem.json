@@ -11,11 +11,11 @@
         },
         {
             "fieldName": "validToDate",
-            "fieldType": "Instant"
+            "fieldType": "ZonedDateTime"
         },
         {
             "fieldName": "modDate",
-            "fieldType": "Instant"
+            "fieldType": "ZonedDateTime"
         },
         {
             "fieldName": "modUser",
@@ -28,7 +28,7 @@
             "otherEntityName": "company",
             "otherEntityRelationshipName": "transportSystem",
             "relationshipName": "company",
-            "otherEntityField": "id"
+            "otherEntityField": "shortName"
         }
     ],
     "changelogDate": "20190807131137",

@@ -25,7 +25,7 @@
             <th jhiSortBy="validToDate"><span>Valid To Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="modDate"><span>Mod Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="modUser"><span>Mod User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="removerCompany.id"><span>Remover Company</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="removerCompany.shortName"><span>Remover Company</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -41,7 +41,7 @@
                 <td>{{company.modUser}}</td>
                 <td>
                     <div *ngIf="company.removerCompany">
-                        <a [routerLink]="['/company', company.removerCompany?.id, 'view' ]" >{{company.removerCompany?.id}}</a>
+                        <a [routerLink]="['/company', company.removerCompany?.id, 'view' ]" >{{company.removerCompany?.shortName}}</a>
                     </div>
                 </td>
                 <td class="text-right">

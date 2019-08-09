@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 
 import java.io.Serializable;
-import java.time.Instant;
+import java.time.ZonedDateTime;
 
 /**
  * A TransportSystem.
@@ -26,10 +26,10 @@ public class TransportSystem implements Serializable {
     private String name;
 
     @Column(name = "valid_to_date")
-    private Instant validToDate;
+    private ZonedDateTime validToDate;
 
     @Column(name = "mod_date")
-    private Instant modDate;
+    private ZonedDateTime modDate;
 
     @Column(name = "mod_user")
     private String modUser;
@@ -73,29 +73,29 @@ public class TransportSystem implements Serializable {
         this.name = name;
     }
 
-    public Instant getValidToDate() {
+    public ZonedDateTime getValidToDate() {
         return validToDate;
     }
 
-    public TransportSystem validToDate(Instant validToDate) {
+    public TransportSystem validToDate(ZonedDateTime validToDate) {
         this.validToDate = validToDate;
         return this;
     }
 
-    public void setValidToDate(Instant validToDate) {
+    public void setValidToDate(ZonedDateTime validToDate) {
         this.validToDate = validToDate;
     }
 
-    public Instant getModDate() {
+    public ZonedDateTime getModDate() {
         return modDate;
     }
 
-    public TransportSystem modDate(Instant modDate) {
+    public TransportSystem modDate(ZonedDateTime modDate) {
         this.modDate = modDate;
         return this;
     }
 
-    public void setModDate(Instant modDate) {
+    public void setModDate(ZonedDateTime modDate) {
         this.modDate = modDate;
     }
 

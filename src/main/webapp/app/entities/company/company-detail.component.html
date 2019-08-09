@@ -36,7 +36,7 @@
                 <dt><span>Remover Company</span></dt>
                 <dd>
                     <div *ngIf="company.removerCompany">
-                        <a [routerLink]="['/company', company.removerCompany?.id, 'view']">{{company.removerCompany?.id}}</a>
+                        <a [routerLink]="['/company', company.removerCompany?.id, 'view']">{{company.removerCompany?.shortName}}</a>
                     </div>
                 </dd>
             </dl>

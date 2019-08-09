@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModel;
 import javax.persistence.*;
 
 import java.io.Serializable;
-import java.time.Instant;
+import java.time.ZonedDateTime;
 
 /**
  * not an ignored comment
@@ -31,13 +31,13 @@ public class Company implements Serializable {
     private String shortName;
 
     @Column(name = "valid_from_date")
-    private Instant validFromDate;
+    private ZonedDateTime validFromDate;
 
     @Column(name = "valid_to_date")
-    private Instant validToDate;
+    private ZonedDateTime validToDate;
 
     @Column(name = "mod_date")
-    private Instant modDate;
+    private ZonedDateTime modDate;
 
     @Column(name = "mod_user")
     private String modUser;
@@ -94,42 +94,42 @@ public class Company implements Serializable {
         this.shortName = shortName;
     }
 
-    public Instant getValidFromDate() {
+    public ZonedDateTime getValidFromDate() {
         return validFromDate;
     }
 
-    public Company validFromDate(Instant validFromDate) {
+    public Company validFromDate(ZonedDateTime validFromDate) {
         this.validFromDate = validFromDate;
         return this;
     }
 
-    public void setValidFromDate(Instant validFromDate) {
+    public void setValidFromDate(ZonedDateTime validFromDate) {
         this.validFromDate = validFromDate;
     }
 
-    public Instant getValidToDate() {
+    public ZonedDateTime getValidToDate() {
         return validToDate;
     }
 
-    public Company validToDate(Instant validToDate) {
+    public Company validToDate(ZonedDateTime validToDate) {
         this.validToDate = validToDate;
         return this;
     }
 
-    public void setValidToDate(Instant validToDate) {
+    public void setValidToDate(ZonedDateTime validToDate) {
         this.validToDate = validToDate;
     }
 
-    public Instant getModDate() {
+    public ZonedDateTime getModDate() {
         return modDate;
     }
 
-    public Company modDate(Instant modDate) {
+    public Company modDate(ZonedDateTime modDate) {
         this.modDate = modDate;
         return this;
     }
 
-    public void setModDate(Instant modDate) {
+    public void setModDate(ZonedDateTime modDate) {
         this.modDate = modDate;
     }
 
