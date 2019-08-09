@@ -1,5 +1,6 @@
 package com.evry.gbs.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.swagger.annotations.ApiModel;
 
 import javax.persistence.*;
@@ -44,7 +45,8 @@ public class Company implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties("companies")
-    private Company removerCompany;
+    @JsonBackReference
+     private Company removerCompany;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
