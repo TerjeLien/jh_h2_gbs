@@ -4,21 +4,21 @@ entity Company {
 	code String,
 	name String,
 	shortName String,
-    validFromDate Instant,
-    validToDate Instant,
-    modDate Instant,
+    validFromDate ZonedDateTime,
+    validToDate ZonedDateTime,
+    modDate ZonedDateTime,
     modUser String
 }
 entity TransportSystem {
 	code String,
 	name String,
-    validToDate Instant,
-    modDate Instant,
+    validToDate ZonedDateTime,
+    modDate ZonedDateTime,
     modUser String
 }
 relationship ManyToOne {
-	Company{removerCompany} to Company,
-	TransportSystem{company} to Company
+	Company{removerCompany(shortName)} to Company,
+	TransportSystem{company(shortName)} to Company
 }
 
 paginate Company with pagination
