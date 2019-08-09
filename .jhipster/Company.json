@@ -15,15 +15,15 @@
         },
         {
             "fieldName": "validFromDate",
-            "fieldType": "Instant"
+            "fieldType": "ZonedDateTime"
         },
         {
             "fieldName": "validToDate",
-            "fieldType": "Instant"
+            "fieldType": "ZonedDateTime"
         },
         {
             "fieldName": "modDate",
-            "fieldType": "Instant"
+            "fieldType": "ZonedDateTime"
         },
         {
             "fieldName": "modUser",
@@ -36,7 +36,7 @@
             "otherEntityName": "company",
             "otherEntityRelationshipName": "company",
             "relationshipName": "removerCompany",
-            "otherEntityField": "id"
+            "otherEntityField": "shortName"
         }
     ],
     "changelogDate": "20190807123050",

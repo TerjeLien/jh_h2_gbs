@@ -37,7 +37,7 @@
                 <td>{{transportSystem.modUser}}</td>
                 <td>
                     <div *ngIf="transportSystem.company">
-                        <a [routerLink]="['/company', transportSystem.company?.id, 'view' ]" >{{transportSystem.company?.id}}</a>
+                        <a [routerLink]="['/company', transportSystem.company?.id, 'view' ]" >{{transportSystem.company?.shortName}}</a>
                     </div>
                 </td>
                 <td class="text-right">

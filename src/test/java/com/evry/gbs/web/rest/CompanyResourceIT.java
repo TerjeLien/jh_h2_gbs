@@ -22,9 +22,12 @@ import org.springframework.validation.Validator;
 
 import javax.persistence.EntityManager;
 import java.time.Instant;
-import java.time.temporal.ChronoUnit;
+import java.time.ZonedDateTime;
+import java.time.ZoneOffset;
+import java.time.ZoneId;
 import java.util.List;
 
+import static com.evry.gbs.web.rest.TestUtil.sameInstant;
 import static com.evry.gbs.web.rest.TestUtil.createFormattingConversionService;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
@@ -46,17 +49,17 @@ public class CompanyResourceIT {
     private static final String DEFAULT_SHORT_NAME = "AAAAAAAAAA";
     private static final String UPDATED_SHORT_NAME = "BBBBBBBBBB";
 
-    private static final Instant DEFAULT_VALID_FROM_DATE = Instant.ofEpochMilli(0L);
-    private static final Instant UPDATED_VALID_FROM_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
-    private static final Instant SMALLER_VALID_FROM_DATE = Instant.ofEpochMilli(-1L);
+    private static final ZonedDateTime DEFAULT_VALID_FROM_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_VALID_FROM_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final ZonedDateTime SMALLER_VALID_FROM_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(-1L), ZoneOffset.UTC);
 
-    private static final Instant DEFAULT_VALID_TO_DATE = Instant.ofEpochMilli(0L);
-    private static final Instant UPDATED_VALID_TO_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
-    private static final Instant SMALLER_VALID_TO_DATE = Instant.ofEpochMilli(-1L);
+    private static final ZonedDateTime DEFAULT_VALID_TO_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_VALID_TO_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final ZonedDateTime SMALLER_VALID_TO_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(-1L), ZoneOffset.UTC);
 
-    private static final Instant DEFAULT_MOD_DATE = Instant.ofEpochMilli(0L);
-    private static final Instant UPDATED_MOD_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
-    private static final Instant SMALLER_MOD_DATE = Instant.ofEpochMilli(-1L);
+    private static final ZonedDateTime DEFAULT_MOD_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_MOD_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final ZonedDateTime SMALLER_MOD_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(-1L), ZoneOffset.UTC);
 
     private static final String DEFAULT_MOD_USER = "AAAAAAAAAA";
     private static final String UPDATED_MOD_USER = "BBBBBBBBBB";
@@ -196,9 +199,9 @@ public class CompanyResourceIT {
             .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE.toString())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
             .andExpect(jsonPath("$.[*].shortName").value(hasItem(DEFAULT_SHORT_NAME.toString())))
-            .andExpect(jsonPath("$.[*].validFromDate").value(hasItem(DEFAULT_VALID_FROM_DATE.toString())))
-            .andExpect(jsonPath("$.[*].validToDate").value(hasItem(DEFAULT_VALID_TO_DATE.toString())))
-            .andExpect(jsonPath("$.[*].modDate").value(hasItem(DEFAULT_MOD_DATE.toString())))
+            .andExpect(jsonPath("$.[*].validFromDate").value(hasItem(sameInstant(DEFAULT_VALID_FROM_DATE))))
+            .andExpect(jsonPath("$.[*].validToDate").value(hasItem(sameInstant(DEFAULT_VALID_TO_DATE))))
+            .andExpect(jsonPath("$.[*].modDate").value(hasItem(sameInstant(DEFAULT_MOD_DATE))))
             .andExpect(jsonPath("$.[*].modUser").value(hasItem(DEFAULT_MOD_USER.toString())));
     }
     
@@ -216,9 +219,9 @@ public class CompanyResourceIT {
             .andExpect(jsonPath("$.code").value(DEFAULT_CODE.toString()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
             .andExpect(jsonPath("$.shortName").value(DEFAULT_SHORT_NAME.toString()))
-            .andExpect(jsonPath("$.validFromDate").value(DEFAULT_VALID_FROM_DATE.toString()))
-            .andExpect(jsonPath("$.validToDate").value(DEFAULT_VALID_TO_DATE.toString()))
-            .andExpect(jsonPath("$.modDate").value(DEFAULT_MOD_DATE.toString()))
+            .andExpect(jsonPath("$.validFromDate").value(sameInstant(DEFAULT_VALID_FROM_DATE)))
+            .andExpect(jsonPath("$.validToDate").value(sameInstant(DEFAULT_VALID_TO_DATE)))
+            .andExpect(jsonPath("$.modDate").value(sameInstant(DEFAULT_MOD_DATE)))
             .andExpect(jsonPath("$.modUser").value(DEFAULT_MOD_USER.toString()));
     }
 
